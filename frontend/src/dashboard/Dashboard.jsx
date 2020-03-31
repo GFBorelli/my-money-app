@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Dashboar() {
-    return (
-        <div>
-            <h1>Dashboard</h1>
-        </div>
-    )
+import PageHeader from '../common/template/PageHeader'
+
+export default class Dashboard extends Component {
+
+    render() {
+        return (
+            <div>
+                <PageHeader name='Dashboard' small='beta version' />
+                <p>Dashboard</p>
+            </div>
+        )
+    }
 }
+
