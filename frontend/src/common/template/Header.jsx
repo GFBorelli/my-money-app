@@ -1,6 +1,7 @@
 import React from 'react'
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
-import { FaMoneyBillAlt } from 'react-icons/fa'
+import { Navbar, Nav, NavItem, NavLink, Dropdown } from 'react-bootstrap'
+import { FaMoneyBillAlt, FaDollarSign, FaEdit } from 'react-icons/fa'
+import { MdDashboard } from 'react-icons/md'
 
 export default props => (
     <Navbar bg="primary" variant="dark" expand="lg">
@@ -8,17 +9,15 @@ export default props => (
             <FaMoneyBillAlt /> <b>My </b>Money
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#link">Link</Nav.Link>
-                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                </NavDropdown>
-            </Nav>
+            <Nav variant="pills" defaultActiveKey="#home">
+                <Nav.Link href="#home"><MdDashboard /> Dashboard</Nav.Link>
+                <Dropdown as={NavItem}>
+                    <Dropdown.Toggle as={NavLink}><FaEdit /> Cadastro</Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item href="#billingCycles"><FaDollarSign />Ciclo de Pagamentos</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>;
+    </Nav>
         </Navbar.Collapse>
     </Navbar>
 )
