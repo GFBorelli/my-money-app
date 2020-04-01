@@ -1,6 +1,9 @@
+.pageHeader > h3 {
+  margin-left: 3vh;  
+}
 .pageHeader > h3 > small{
   color: gray;
- }
+}
 
 footer {
   text-align: center;
@@ -9,4 +12,3 @@ footer {
 footer > strong > a:hover {
   text-decoration: none;
 }
-
