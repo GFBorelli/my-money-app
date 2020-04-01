@@ -7,7 +7,7 @@ export default props => (
         <Card.Header>{props.text}</Card.Header>
         <Card.Body>
             <Row>
-                <Col xs={'10'} className='mt-2'>
+                <Col xs={'10'}>
                     <Card.Text as='h1'  >{props.value}</Card.Text>
                 </Col>
                 <Card.Text>{props.icon}</Card.Text>

@@ -5,9 +5,19 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { applyMiddleware, createStore } from 'redux'
+import promise from 'redux-promise'
+import { Provider } from 'react-redux'
+import reducers from './main/reducers'
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(promise)));
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
