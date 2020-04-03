@@ -1,6 +1,15 @@
-export function selectTab(selectedTab) {
+export function selectTab(tabId) {
     return {
         type: 'TAB_SELECTED',
-        payload: selectedTab
+        payload: tabId
+    }
+}
+
+export function showTabs(...tabsId) {
+    const tabsToShow = {}
+    tabsId.forEach(e => tabsToShow[e] = true)
+    return{
+        type: 'TABS_SHOWED',
+        payload: tabsToShow
     }
 }
