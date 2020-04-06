@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import { reduxForm, Field } from 'redux-form'
+import { init } from './billingCycleActions'
 
 import { Form, Button, Col } from 'react-bootstrap'
 
 class BillingCycleForm extends Component {
     render() {
-        const ReduxFormControl = ({input, meta, ...props}) => {
+        const ReduxFormControl = ({ input, meta, ...props }) => {
             return <Form.Control {...props} {...input} />
-        };
+        }
         const { handleSubmit } = this.props
         return (
             <div className='ml-4 mr-4 mt-3'>
@@ -29,13 +32,14 @@ class BillingCycleForm extends Component {
                         </Form.Group>
                     </Form.Row>
 
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
+                    <Button variant="primary" type='submit'>Submit</Button>{' '}
+                    <Button variant="secondary" onClick={() => this.props.init()}>Cancelar</Button>
                 </Form>
             </div>
         )
     }
 }
 
-export default reduxForm({form: 'billingCycleForm'})(BillingCycleForm)
+BillingCycleForm = reduxForm({ form: 'billingCycleForm' })(BillingCycleForm)
+const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch)
+export default connect(null, mapDispatchToProps)(BillingCycleForm)
