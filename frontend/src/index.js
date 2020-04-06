@@ -7,11 +7,13 @@ import * as serviceWorker from './serviceWorker';
 
 import { applyMiddleware, createStore } from 'redux'
 import promise from 'redux-promise'
+import multi from 'redux-multi'
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import reducers from './main/reducers'
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(promise)));
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(multi, thunk, promise)));
 
 ReactDOM.render(
   <React.StrictMode>

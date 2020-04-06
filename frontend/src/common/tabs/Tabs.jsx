@@ -26,7 +26,7 @@ class Tabs extends Component {
         const visibleTabRemove = visibleRemove ? '' : 'd-none'
 
         return (
-            <Nav className='ml-4 mr-4' variant="tabs" defaultActiveKey="list" onSelect={handleSelect}>
+            <Nav className='ml-4 mr-4' variant="tabs" activeKey={this.props.tabs.selected} onSelect={handleSelect}>
                 <Nav.Item className={visibleTabList}>
                     <Nav.Link eventKey="list"><FaBars /> Listar</Nav.Link>
                 </Nav.Item>
