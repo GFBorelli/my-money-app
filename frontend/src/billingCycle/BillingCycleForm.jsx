@@ -9,7 +9,11 @@ import { Form, Button, Col } from 'react-bootstrap'
 class BillingCycleForm extends Component {
     render() {
         const ReduxFormControl = ({ input, meta, ...props }) => {
-            return <Form.Control {...props} {...input} />
+            if (this.props.tabSelected !== "remove") {
+                return <Form.Control {...props} {...input} />
+            } else {
+                return <Form.Control readOnly {...props} {...input} />
+            }
         }
         const { handleSubmit } = this.props
         return (
@@ -32,7 +36,7 @@ class BillingCycleForm extends Component {
                         </Form.Group>
                     </Form.Row>
 
-                    <Button variant="primary" type='submit'>Submit</Button>{' '}
+                    <Button variant={this.props.submitColor} type='submit'>{this.props.submitLabel}</Button>{' '}
                     <Button variant="secondary" onClick={() => this.props.init()}>Cancelar</Button>
                 </Form>
             </div>
@@ -41,5 +45,10 @@ class BillingCycleForm extends Component {
 }
 
 BillingCycleForm = reduxForm({ form: 'billingCycleForm' })(BillingCycleForm)
+const mapStateToProps = state => ({
+    tabSelected: state.tabs.selected,
+    submitColor: state.tabs.submitColor,
+    submitLabel: state.tabs.submitLabel
+})
 const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch)
-export default connect(null, mapDispatchToProps)(BillingCycleForm)
+export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleForm)

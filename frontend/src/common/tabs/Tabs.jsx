@@ -13,17 +13,10 @@ class Tabs extends Component {
     render() {
         const handleSelect = (eventKey) => this.props.selectTab(eventKey)
 
-        const visibleList = this.props.tabs.visible['list']
-        const visibleTabList = visibleList ? '' : 'd-none'
-
-        const visibleAdd = this.props.tabs.visible['add']
-        const visibleTabAdd = visibleAdd ? '' : 'd-none'
-
-        const visibleEdit = this.props.tabs.visible['edit']
-        const visibleTabEdit = visibleEdit ? '' : 'd-none'
-
-        const visibleRemove = this.props.tabs.visible['remove']
-        const visibleTabRemove = visibleRemove ? '' : 'd-none'
+        const visibleTabList = this.props.tabs.visible['list'] ? '' : 'd-none'
+        const visibleTabAdd = this.props.tabs.visible['add'] ? '' : 'd-none'
+        const visibleTabEdit = this.props.tabs.visible['edit'] ? '' : 'd-none'
+        const visibleTabRemove = this.props.tabs.visible['remove'] ? '' : 'd-none'
 
         return (
             <Nav className='ml-4 mr-4' variant="tabs" activeKey={this.props.tabs.selected} onSelect={handleSelect}>

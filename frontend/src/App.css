@@ -9,3 +9,7 @@ footer {
 footer > strong > a:hover {
   text-decoration: none;
 }
+
+.table-actions {
+  width: 150px;
+}
