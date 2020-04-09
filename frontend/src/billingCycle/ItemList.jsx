@@ -9,12 +9,12 @@ import { FaPlus, FaRegClone, FaTrashAlt } from 'react-icons/fa'
 class ItemList extends Component {
 
     add(index, item = {}) {
-        this.props.arrayInsert('billingCycleForm', `${this.props.field}`, index, item)
+        this.props.arrayInsert('billingCycleForm', this.props.field, index, item)
     }
 
     remove(index) {
-        if (this.props.list.lenght > 1) {
-            this.props.arrayRemove('billingCycleForm', `${this.props.field}`, index)
+        if (this.props.list.length > 1) {
+            this.props.arrayRemove('billingCycleForm', this.props.field, index)
         }
     }
 
@@ -32,6 +32,7 @@ class ItemList extends Component {
             <tr key={index}>
                 <td><Field name={`${this.props.field}[${index}].name`} component={ReduxFormControl} placeholder='digite um nome' /></td>
                 <td><Field name={`${this.props.field}[${index}].value`} component={ReduxFormControl} placeholder='digite um valor' /></td>
+                <td className={this.props.showStatus ? '' : 'd-none'}><Field name={`${this.props.field}[${index}].status`} component={ReduxFormControl} placeholder='digite um status' /></td>
                 <td className={this.props.tabSelected !== 'remove' ? '' : 'd-none'}>
                     <Button onClick={() => this.add(index + 1)}><FaPlus /></Button>{' '}
                     <Button onClick={() => this.add(index + 1, item)} variant='warning'><FaRegClone /></Button>{' '}
@@ -50,7 +51,8 @@ class ItemList extends Component {
                         <tr>
                             <th>Nome</th>
                             <th>Valor</th>
-                            <th className={this.props.tabSelected !== 'remove' ? '' : 'd-none'}>Ações</th>
+                            <th className={this.props.showStatus ? '' : 'd-none'}>Status</th>
+                            <th className={`table-actions ${this.props.tabSelected !== 'remove' ? '' : 'd-none'}`}>Ações</th>
                         </tr>
                     </thead>
                     <tbody>

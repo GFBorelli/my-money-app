@@ -13,17 +13,3 @@ export function showTabs(...tabsId) {
         payload: tabsToShow
     }
 }
-
-export function submitColor(color) {
-    return {
-        type: 'SUBMIT_COLOR',
-        payload: color
-    }
-}
-
-export function submitLabel(label) {
-    return {
-        type: 'SUBMIT_LABEL',
-        payload: label
-    }
-}

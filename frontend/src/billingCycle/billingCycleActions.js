@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
 import { initialize } from 'redux-form'
-import { showTabs, selectTab, submitColor, submitLabel } from '../common/tabs/tabsActions'
+import { showTabs, selectTab} from '../common/tabs/tabsActions'
 
 const BASE_URL = 'http://localhost:3003/api'
 const INITIAL_VALUES = {credits: [{}], debits:[{}]}
@@ -10,8 +10,6 @@ export function init() {
     return [
         showTabs('list', 'add'),
         selectTab('list'),
-        submitColor('primary'),
-        submitLabel('Incluir'), 
         getList(),
         initialize('billingCycleForm', INITIAL_VALUES)
     ]
@@ -55,8 +53,6 @@ export function showUpdate(billingCycle) {
     return [
         showTabs('edit'),
         selectTab('edit'),
-        submitColor('warning'),
-        submitLabel('Editar'),
         initialize('billingCycleForm', billingCycle)
     ]
 }
@@ -65,8 +61,6 @@ export function showRemove(billingCycle) {
     return [
         showTabs('remove'),
         selectTab('remove'),
-        submitColor('danger'),
-        submitLabel('Excluir'),
         initialize('billingCycleForm', billingCycle)
     ]
 }

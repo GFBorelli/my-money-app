@@ -22,9 +22,32 @@ class BillingCycle extends Component {
                 <PageHeader name='Ciclos de Pagamentos' />
                 <Tabs />
                 <TabContent id='list'><BillingCycleList /></TabContent>
-                <TabContent id='add' ><BillingCycleForm onSubmit={this.props.create} /></TabContent>
-                <TabContent id='edit'><BillingCycleForm onSubmit={this.props.update} /></TabContent>
-                <TabContent id='remove'><BillingCycleForm onSubmit={this.props.remove} /></TabContent>
+                <TabContent id='add' >
+                    <BillingCycleForm
+                        onSubmit={this.props.create}
+                        submitLabel='Adicionar'
+                        tabSelected='add'
+                        submitColor='primary'
+                    />
+                </TabContent>
+
+                <TabContent id='edit'>
+                    <BillingCycleForm
+                        onSubmit={this.props.update}
+                        submitLabel='Editar'
+                        tabSelected='edit'
+                        submitColor='warning'
+                    />
+                </TabContent>
+
+                <TabContent id='remove'>
+                    <BillingCycleForm
+                        onSubmit={this.props.remove}
+                        submitLabel='Excluir'
+                        tabSelected='remove'
+                        submitColor='danger'
+                    />
+                </TabContent>
             </div>
         )
     }
