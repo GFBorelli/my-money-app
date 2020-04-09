@@ -4,7 +4,7 @@ import { initialize } from 'redux-form'
 import { showTabs, selectTab, submitColor, submitLabel } from '../common/tabs/tabsActions'
 
 const BASE_URL = 'http://localhost:3003/api'
-const INITIAL_VALUES = {}
+const INITIAL_VALUES = {credits: [{}], debits:[{}]}
 
 export function init() {
     return [
