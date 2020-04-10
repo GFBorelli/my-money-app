@@ -1,5 +1,6 @@
-import React from 'react';
 import './App.css';
+import React from 'react';
+import { HashRouter } from 'react-router-dom'
 
 import Header from './common/template/Header'
 import Routes from './main/Routes'
@@ -9,10 +10,12 @@ import Messages from './common/msg/Messages'
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Routes />
-      <Footer />
-      <Messages />
+      <HashRouter>
+        <Header />
+        <Routes />
+        <Footer />
+        <Messages />
+      </HashRouter>
     </div>
   );
 }

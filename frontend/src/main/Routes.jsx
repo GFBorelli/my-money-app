@@ -1,13 +1,15 @@
 import React from 'react'
-import { Route, Redirect, HashRouter } from 'react-router-dom'
+import { Route, Redirect, Switch } from 'react-router'
 
-import BillingCycle from '../billingCycle/BillingCycle'
 import Dashboard from '../dashboard/Dashboard'
+import BillingCycle from '../billingCycle/BillingCycle'
 
 export default props => (
-    <HashRouter>
-        <Route path='/dashboard' component={Dashboard} />
-        <Route path='/billingCycles' component={BillingCycle} />
-        <Redirect from='*' to='/dashboard' />
-    </HashRouter>
+    <div>
+        <Switch>
+            <Route exact path='/' component={Dashboard} />
+            <Route path='/billingCycles' component={BillingCycle} />
+            <Redirect from='*' to='/' />
+        </Switch>
+    </div>
 )
