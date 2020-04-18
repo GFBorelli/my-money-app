@@ -29,6 +29,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React](https://reactjs.org)
 - [MongoDB](https://www.mongodb.com/)
 - [Redux](https://redux.js.org/)
+- [JWT](https://jwt.io/)
 - Diversas tecnologias menores como React Bootstrap, React Icons, Redux-Form Create-React-App etc
 
 ## 💻 Projeto
